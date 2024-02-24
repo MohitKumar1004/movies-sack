@@ -11,8 +11,8 @@ import Reviews from './components/reviews/Reviews.js';
 function App() {
 
   const [movies, setMovies] = useState([]);
-  const [movie, setMovie] = useState();
-  const [reviews, setReviews] = useState();
+  const [movie, setMovie] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   const getMovies = async() => {
     try {
@@ -32,7 +32,7 @@ function App() {
       const response = await api.get(`/api/v1/movies/${movieId}`)
       const singleMovie = response.data
       setMovie(singleMovie)
-      setReviews(singleMovie.reviews)
+      setReviews(singleMovie.reviewIds)
     } catch(error) {
       console.error(error)
     }
@@ -45,7 +45,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home movies={movies}/>}/>
           <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
-          <Route path="/Reviews/:moviesId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews}/>}/>
+          <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews}/>}/>
         </Route>
       </Routes>      
     </div>

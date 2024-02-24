@@ -22,7 +22,8 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                 reviewBody: rev.value,
                 imdbId: movieId
             })
-            const updatedReviews = [...reviews, {body: rev.value, imdbId: movieId}]
+            console.log(movie)
+            const updatedReviews = [...reviews, {body: rev.value}]
             rev.value = ""
             setReviews(updatedReviews)
         } catch(error) {
@@ -33,7 +34,11 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
     return (
         <Container>
             <Row>
-                <Col><h3>Reviews</h3></Col>
+                <Col>
+                    <br />
+                    <h3>Reviews</h3>
+                    <br />
+                </Col>
             </Row>
             <Row>
                 <Col>

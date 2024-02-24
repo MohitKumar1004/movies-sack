@@ -12,7 +12,7 @@ const Hero = ({movies}) => {
     const navigate = useNavigate()
 
     const reviews = (movieId) => {
-        navigate(`/Review/${movieId}`)
+        navigate(`/Reviews/${movieId}`)
     }
     
     return (
@@ -37,9 +37,9 @@ const Hero = ({movies}) => {
                                                         <FontAwesomeIcon className="play-button-icon" icon={faCirclePlay}/>
                                                     </div>
                                                 </Link>
-                                            </div>
-                                            <div className="movie-review-button-container">
-                                                <Button variant="info" onClick={() =>reviews(movie.imdbId)}>Reviews</Button>
+                                                <div className="movie-review-button-container">
+                                                    <Button variant="info" onClick={() =>reviews(movie.imdbId)}>Reviews</Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
