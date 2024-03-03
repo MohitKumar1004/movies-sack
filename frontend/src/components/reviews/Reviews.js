@@ -40,7 +40,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                 </Col>
             </Row>
             <Row className='flex-column flex-md-row'>
-                <Col className='d-flex justify-content-center mb-2' style={{maxHeight:"70vh"}}>
+                <Col className='d-flex justify-content-center mb-2' style={{"max-height":'70vh'}}>
                     <img src={movie?.poster} alt="" />
                 </Col>
                 <Col>
