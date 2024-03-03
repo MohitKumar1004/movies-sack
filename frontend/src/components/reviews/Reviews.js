@@ -18,11 +18,10 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
         e.preventDefault()
         const rev = revText.current
         try {
-            const response = await api.post("/api/v1/reviews",{
+            await api.post("/api/v1/reviews",{
                 reviewBody: rev.value,
                 imdbId: movieId
             })
-            console.log(movie)
             const updatedReviews = [...reviews, {body: rev.value}]
             rev.value = ""
             setReviews(updatedReviews)
@@ -40,8 +39,8 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
                     <br />
                 </Col>
             </Row>
-            <Row>
-                <Col>
+            <Row className='flex-column flex-md-row'>
+                <Col className='d-flex justify-content-center mb-2' style={{maxHeight:"70vh"}}>
                     <img src={movie?.poster} alt="" />
                 </Col>
                 <Col>
