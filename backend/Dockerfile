@@ -4,6 +4,9 @@
 
 # define base docker image
 FROM alpine:latest
+
+RUN mvn clean package -DskipTests
+
 FROM openjdk:17
 EXPOSE 8080
 LABEL maintainer="Mohit Kumar 1004"
